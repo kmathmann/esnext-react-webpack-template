@@ -1,6 +1,5 @@
 import webpack from 'webpack';
 import path from 'path';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import AppcacheWebpackPlugin from 'appcache-webpack-plugin';
 
@@ -63,7 +62,6 @@ export default {
         new HtmlWebpackPlugin({
             template: path.resolve(ROOT_PATH, 'index.html')
         }),
-        new ExtractTextPlugin('[name].bundle.css'),
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true
         }),
