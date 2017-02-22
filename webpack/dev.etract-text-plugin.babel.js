@@ -8,6 +8,7 @@ const ROOT_PATH = path.resolve('./');
 export default {
     entry: {
         template: [
+            'react-hot-loader/patch',
             path.resolve('./src/index')
         ]
     },
@@ -62,6 +63,9 @@ export default {
         new HtmlWebpackPlugin({
             template: path.resolve(ROOT_PATH, 'index.html')
         }),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
         new ExtractTextPlugin('[name].bundle.css'),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('development'),
@@ -69,7 +73,5 @@ export default {
             __QA__: false,
             __LIVE__: false,
         }),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin()
     ]
 };
