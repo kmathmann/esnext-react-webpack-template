@@ -19,7 +19,7 @@ export default (dev = false) => {
         module: {
             rules: [
                 {
-                    test: /\.js$/,
+                    test: /\.(js|jsx)$/,
                     use: ['babel-loader'],
                     include: path.resolve(ROOT_PATH, 'src')
                 },
